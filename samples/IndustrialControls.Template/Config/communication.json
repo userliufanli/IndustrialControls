@@ -1,0 +1,16 @@
+{
+  "Version": "1.0",
+  "Groups": [
+    {
+      "Name": "CommConfig",
+      "Parameters": {
+        "TcpIp": { "Key": "TcpIp", "Value": "127.0.0.1", "Type": "System.String", "Group": "CommConfig" },
+        "TcpPort": { "Key": "TcpPort", "Value": 502, "Type": "System.Int32", "Group": "CommConfig" },
+        "TcpTimeout": { "Key": "TcpTimeout", "Value": 5000, "Type": "System.Int32", "Group": "CommConfig" },
+        "SerialPortName": { "Key": "SerialPortName", "Value": "COM1", "Type": "System.String", "Group": "CommConfig" },
+        "SerialBaudRate": { "Key": "SerialBaudRate", "Value": 115200, "Type": "System.Int32", "Group": "CommConfig" },
+        "Mode": { "Key": "Mode", "Value": "Tcp", "Type": "System.String", "Group": "CommConfig" }
+      }
+    }
+  ]
+}

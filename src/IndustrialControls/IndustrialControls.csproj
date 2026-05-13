@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IndustrialControls</RootNamespace>
+    <AssemblyName>IndustrialControls</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\VirtualKeyboard\VirtualKeyboardKeyInputEventArgs.cs" />
+    <Compile Include="Controls\VirtualKeyboard\VirtualKeyboardManager.cs" />
+    <Compile Include="Core\ParameterManager.cs" />
+    <Compile Include="Core\ParameterSection.cs" />
+    <Compile Include="Core\ParameterAccessor.cs" />
+    <Compile Include="Core\Runtime\IAlarmFeed.cs" />
+    <Compile Include="Core\Runtime\ITagDataSource.cs" />
+    <Compile Include="Core\Runtime\ProcessAlarmSnapshot.cs" />
+    <Compile Include="Core\Runtime\RuntimeAlarmLevel.cs" />
+    <Compile Include="Core\Runtime\TagChangedEventArgs.cs" />
+    <Compile Include="Core\Runtime\TagQuality.cs" />
+    <Compile Include="Core\Runtime\TagSnapshot.cs" />
+    <Compile Include="Core\BaseControl.cs" />
+    <Compile Include="Core\DoubleBufferedControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Core\ControlDesignerHelper.cs" />
+    <Compile Include="Theme\ITheme.cs" />
+    <Compile Include="Theme\ThemeColors.cs" />
+    <Compile Include="Theme\ThemeManager.cs" />
+    <Compile Include="Theme\FlatLightTheme.cs" />
+    <Compile Include="Theme\FlatDarkTheme.cs" />
+    <Compile Include="Utilities\GraphicsHelper.cs" />
+    <Compile Include="Utilities\AnimationHelper.cs" />
+    <Compile Include="Utilities\ValidationHelper.cs" />
+    <Compile Include="Utilities\ByteBufferPool.cs" />
+    <Compile Include="Utilities\RetryHelper.cs" />
+    <Compile Include="Controls\StatusIndicator\StatusIndicator.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\StatusIndicator\StatusIndicatorState.cs" />
+    <Compile Include="Controls\StatusIndicator\StatusHistoryRecord.cs" />
+    <Compile Include="Controls\DataInput\NumericInputBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DataInput\ValidatedTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DataInput\DataInputPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DataInput\ValidationPresets.cs" />
+    <Compile Include="Controls\DeviceButton\DeviceControlButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeviceButton\ButtonState.cs" />
+    <Compile Include="Controls\Alarm\AlarmDisplay.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Alarm\AlarmItem.cs" />
+    <Compile Include="Controls\Alarm\AlarmLevel.cs" />
+    <Compile Include="Controls\DataVisualization\TrendChart.cs" />
+    <Compile Include="Controls\DataVisualization\GaugeControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DataVisualization\IndustrialProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DataVisualization\DataBuffer.cs" />
+    <Compile Include="Controls\VirtualKeyboard\KeyboardLayoutMode.cs" />
+    <Compile Include="Controls\VirtualKeyboard\KeyboardConfig.cs" />
+    <Compile Include="Controls\VirtualKeyboard\KeyButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\VirtualKeyboard\VirtualKeyboardPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\VirtualKeyboard\VirtualKeyboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\VirtualKeyboard\VirtualKeyboardForm.Designer.cs">
+      <DependentUpon>VirtualKeyboardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Automation\IndustrialProtocolKind.cs" />
+    <Compile Include="Automation\StationTransportKind.cs" />
+    <Compile Include="Automation\StationCommProfile.cs" />
+    <Compile Include="Automation\LineStationConfiguration.cs" />
+    <Compile Include="Automation\ModbusRtuCodec.cs" />
+    <Compile Include="Automation\ModbusTcpMaster.cs" />
+    <Compile Include="Automation\IStationCommSession.cs" />
+    <Compile Include="Automation\RawStationSession.cs" />
+    <Compile Include="Automation\ModbusTcpStationSession.cs" />
+    <Compile Include="Automation\StationLineHost.cs" />
+    <Compile Include="Controls\Communication\CommunicationMode.cs" />
+    <Compile Include="Controls\Communication\CommunicationState.cs" />
+    <Compile Include="Controls\Communication\FrameParser.cs" />
+    <Compile Include="Controls\Communication\CommunicationManager.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Communication\CommunicationControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Communication\CommunicationControl.Designer.cs">
+      <DependentUpon>CommunicationControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Login\LoginUserStore.cs" />
+    <Compile Include="Controls\Login\FlatLoginControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Login\FlatLoginControl.Designer.cs">
+      <DependentUpon>FlatLoginControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Login\LoginUserManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\Login\LoginUserManagementForm.Designer.cs">
+      <DependentUpon>LoginUserManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\Communication\CommunicationControl.resx">
+      <DependentUpon>CommunicationControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Login\FlatLoginControl.resx">
+      <DependentUpon>FlatLoginControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Login\LoginUserManagementForm.resx">
+      <DependentUpon>LoginUserManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\VirtualKeyboard\VirtualKeyboardForm.resx">
+      <DependentUpon>VirtualKeyboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

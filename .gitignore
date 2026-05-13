@@ -1,0 +1,44 @@
+## Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+## Visual Studio
+.vs/
+*.user
+*.userosscache
+*.suo
+*.userprefs
+*.sln.docstates
+
+## NuGet
+packages/
+*.nupkg
+**/project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## MSTest / TestResults
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+## ReSharper / Rider
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+.idea/
+
+## Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+## Secrets (do not commit)
+*.pfx
+secrets.json
+appsettings.*.local.json

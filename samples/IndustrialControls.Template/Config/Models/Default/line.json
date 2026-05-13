@@ -1,0 +1,22 @@
+{
+  "Stations": [
+    {
+      "StationId": 1,
+      "Name": "PLC-Default",
+      "Protocol": 1,
+      "Transport": 1,
+      "TcpRemoteHost": "127.0.0.1",
+      "TcpRemotePort": 502,
+      "TcpConnectTimeoutMs": 5000,
+      "TcpServerBindHost": "0.0.0.0",
+      "TcpServerBindPort": 502,
+      "SerialPortName": "COM1",
+      "SerialBaudRate": 9600,
+      "SerialParity": 0,
+      "SerialDataBits": 8,
+      "SerialStopBits": 1,
+      "ModbusUnitId": 1,
+      "IoTimeoutMs": 3000
+    }
+  ]
+}

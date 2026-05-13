@@ -1,0 +1,6 @@
+{
+  "DeviceId": "LINE-02",
+  "DisplayName": "辅助工位",
+  "LineConfigRelative": "Config\\Models\\ModelB\\line.json",
+  "Notes": "第二台示例。"
+}

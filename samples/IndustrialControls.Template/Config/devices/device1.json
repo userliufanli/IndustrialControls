@@ -1,0 +1,6 @@
+{
+  "DeviceId": "LINE-01",
+  "DisplayName": "产线主机",
+  "LineConfigRelative": "Config\\Models\\Default\\line.json",
+  "Notes": "示例设备条目，可按机型增删 JSON 文件。"
+}
