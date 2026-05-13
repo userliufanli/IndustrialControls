@@ -39,7 +39,8 @@ WinForm 工业 HMI 控件与示例：可复用 UI + 通信与参数能力，含 
 
 - [IndustrialControls 使用手册](docs/IndustrialControls使用手册.md)  
 - [快速入门指南](docs/快速入门指南.md)  
-- [API 使用说明书](docs/API使用说明书.md)  
+- [控件文档索引](docs/controls/README.md)（各控件独立说明）  
+- [API 使用说明书（索引）](docs/API使用说明书.md)  
 - [ParameterManager 使用指南](docs/ParameterManager使用指南.md)  
 
 ## 版本信息

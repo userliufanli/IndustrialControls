@@ -28,12 +28,18 @@
 |------|------|
 | [**IndustrialControls使用手册**](./IndustrialControls使用手册.md) | **详细使用手册**：环境、引用、参数系统、JSON、事件、Demo、常见问题 |
 
+### 控件专题（每个控件 / 模块单独一页）
+
+| 文档 | 说明 |
+|------|------|
+| [**控件与核心模块文档索引**](./controls/README.md) | **入口**：状态、报警、通信、趋势、虚拟键盘、登录、参数、主题等独立说明 |
+
 ### 新手入门
 
 | 文档 | 说明 |
 |------|------|
 | [快速入门指南](./快速入门指南.md) | 5分钟快速上手，创建第一个应用 |
-| [API使用说明书](./API使用说明书.md) | 所有控件的完整 API 参考 |
+| [API使用说明书](./API使用说明书.md) | 索引页：链接到 `controls/` 下各控件文档 |
 
 ### 核心功能
 
@@ -50,7 +56,7 @@
         ↓
 2. 快速入门指南.md    → 最短示例与项目结构
         ↓
-3. API使用说明书.md    → 各控件 API 细则
+3. controls/README.md → 按控件查阅独立文档
         ↓
 4. ParameterManager使用指南.md → 参数管理器进阶（与源码冲突时以源码为准）
 ```
@@ -70,15 +76,18 @@ IndustrialControls/
 │       │   ├── Communication/      # 通信控制
 │       │   ├── DataInput/          # 数据输入
 │       │   ├── DataVisualization/  # 数据可视化
-│       │   └── VirtualKeyboard/    # 虚拟键盘
+│       │   ├── VirtualKeyboard/    # 虚拟键盘
+│       │   └── Login/              # 登录与用户管理
 │       ├── Core/               # 核心模块
 │       │   ├── ParameterManager.cs # 参数管理器
 │       │   └── BaseControl.cs      # 控件基类
 │       ├── Theme/              # 主题系统
 │       └── Utilities/          # 工具类
 ├── samples/
-│   └── IndustrialControls.Demo/   # 演示项目
+│   ├── IndustrialControls.Demo/      # 功能演示
+│   └── IndustrialControls.Template/  # 模板工程
 └── docs/                       # 文档目录
+    └── controls/               # 各控件独立说明（见 controls/README.md）
 ```
 
 ---

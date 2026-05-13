@@ -254,7 +254,7 @@ int w = AppParameters.UI.WindowWidth;
 
 ## 10. 控件与主题一览
 
-具体属性、事件、枚举与截图级说明见 **[API使用说明书](./API使用说明书.md)**。本库主要控件目录包括（以仓库为准）：
+各控件的属性、事件、枚举与示例已拆分为 **`docs/controls/`** 下独立页面；总入口见 **[控件与核心模块文档索引](./controls/README.md)**。合订索引见 **[API使用说明书](./API使用说明书.md)**。本库主要控件目录包括（以仓库为准）：
 
 | 区域 | 典型控件 |
 |------|-----------|
@@ -265,9 +265,10 @@ int w = AppParameters.UI.WindowWidth;
 | `Controls/DataInput` | 数据输入、校验 |
 | `Controls/DataVisualization` | 数据可视化 |
 | `Controls/VirtualKeyboard` | 虚拟键盘 |
+| `Controls/Login` | 扁平登录、用户管理窗体 |
 | `Theme` | `ThemeManager`、亮色/暗色主题实现 |
 
-主题切换与配色请阅读 API 文档中主题章节。
+主题切换与配色见 **[ThemeManager](./controls/ThemeManager.md)**。
 
 ---
 
@@ -301,7 +302,8 @@ int w = AppParameters.UI.WindowWidth;
 |------|------|
 | [docs/README.md](./README.md) | 文档中心总览与目录 |
 | [快速入门指南](./快速入门指南.md) | 最短路径上手示例 |
-| [API使用说明书](./API使用说明书.md) | 控件与 API 细则 |
+| [controls/README.md](./controls/README.md) | 各控件独立文档索引 |
+| [API使用说明书](./API使用说明书.md) | 链接到上述控件文档的索引页 |
 | [ParameterManager使用指南](./ParameterManager使用指南.md) | 参数管理器进阶说明（若与源码冲突以源码为准） |
 | `docs/.cursorrules` | 含 WinForms 设计器协作规则 |
 
