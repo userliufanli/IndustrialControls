@@ -6,34 +6,34 @@
 
 ### 🚀 快速开始
 
-- **[API文档总览](API-INDEX.md)** - 控件库概览、快速入门、典型应用场景
+- **[API文档总览](docs/API-INDEX.md)** - 控件库概览、快速入门、典型应用场景
 
 ### 🔧 控件API文档
 
 #### 报警与状态监控
-- **[AlarmDisplay - 报警显示](AlarmDisplay-API.md)** - 分级报警管理、自动排序、确认清除
-- **[StatusIndicator - 状态指示器](StatusIndicator-API.md)** - 多颜色状态、闪烁效果、历史记录
+- **[AlarmDisplay - 报警显示](docs/AlarmDisplay-API.md)** - 分级报警管理、自动排序、确认清除
+- **[StatusIndicator - 状态指示器](docs/StatusIndicator-API.md)** - 多颜色状态、闪烁效果、历史记录
 
 #### 通讯与数据交换
-- **[CommunicationControl - 通讯控件](CommunicationControl-API.md)** - TCP客户端/服务端/串口通讯
+- **[CommunicationControl - 通讯控件](docs/CommunicationControl-API.md)** - TCP客户端/服务端/串口通讯
 
 #### 数据输入与验证
-- **[DataInput - 数据输入组件](DataInput-API.md)**
+- **[DataInput - 数据输入组件](docs/DataInput-API.md)**
   - NumericInputBox - 数值输入框
   - ValidatedTextBox - 验证文本框
   - DataInputPanel - 数据输入面板
 
 #### 数据可视化
-- **[TrendChart - 趋势图](TrendChart-API.md)** - 多通道实时数据曲线显示
+- **[TrendChart - 趋势图](docs/TrendChart-API.md)** - 多通道实时数据曲线显示
 
 #### 设备控制
-- **[DeviceControlButton - 设备控制按钮](DeviceControlButton-API.md)** - 多状态切换、长按确认
+- **[DeviceControlButton - 设备控制按钮](docs/DeviceControlButton-API.md)** - 多状态切换、长按确认
 
 #### 用户认证
-- **[FlatLoginControl - 登录控件](FlatLoginControl-API.md)** - 用户认证、参数持久化
+- **[FlatLoginControl - 登录控件](docs/FlatLoginControl-API.md)** - 用户认证、参数持久化
 
 #### 虚拟键盘
-- **[VirtualKeyboard - 虚拟键盘系统](VirtualKeyboard-API.md)**
+- **[VirtualKeyboard - 虚拟键盘系统](docs/VirtualKeyboard-API.md)**
   - VirtualKeyboardPanel - 键盘面板
   - VirtualKeyboardForm - 键盘窗体
   - VirtualKeyboardManager - 全局管理器
@@ -42,7 +42,7 @@
 
 ### 1. 查找控件
 
-通过 [API文档总览](API-INDEX.md) 查找需要的控件,点击链接进入详细文档。
+通过 [API文档总览](docs/API-INDEX.md) 查找需要的控件,点击链接进入详细文档。
 
 ### 2. 学习使用
 
@@ -73,7 +73,7 @@
 ## 💡 学习路径
 
 ### 初学者
-1. 阅读 [API文档总览](API-INDEX.md)
+1. 阅读 [API文档总览](docs/API-INDEX.md)
 2. 查看快速开始示例
 3. 运行Demo项目
 
