@@ -1,8 +1,3 @@
-# WinForms 与本仓库约定（摘要）
+# Cursor / AI 协作提示（可选）
 
-- 使用 Visual Studio 设计器维护窗体：`partial` 主类 + `*.Designer.cs` + 可选 `*.resx`。
-- 可见控件须在 `*.Designer.cs` 中声明为字段，在 `InitializeComponent()` 中完成 `new`、属性、`Controls.Add`、事件订阅。
-- **禁止**在运行时代码（`Load`、业务方法、构造函数除 `InitializeComponent` 外）中 `new Control()` 并 `Controls.Add` 动态挂载到窗体。
-- 业务逻辑放在非 Designer 的 `partial` 类文件中。
-
-完整说明见根目录 **README.md**。
+本仓库 WinForms 窗体维护约定见 **[design-conventions.md](./design-conventions.md)**：设计器生成 `partial` + `*.Designer.cs`，勿在运行时代码中动态挂载可见控件。
