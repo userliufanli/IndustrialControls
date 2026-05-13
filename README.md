@@ -1,6 +1,8 @@
 # IndustrialControls（WinForm 上位机控件库）
 
-面向工业上位机场景的 **Windows Forms** 控件与配套能力：自定义工业 UI、通信、参数与主题等，便于快速搭建监控与操作界面。
+基于 .NET Framework 4.8 的 WinForms 工业上位机控件库：状态/报警/通信/趋势/虚拟键盘/主题与参数管理等。
+
+WinForm 工业 HMI 控件与示例：可复用 UI + 通信与参数能力，含 Demo 与模板工程。
 
 ## 环境要求
 
