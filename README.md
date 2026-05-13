@@ -10,6 +10,9 @@
 
 ### 🔧 控件API文档
 
+#### 核心基础设施
+- **[ParameterManager - 参数管理系统](docs/ParameterManager-API.md)** - 配置文件管理、热更新、变更事件、多配置文件隔离
+
 #### 报警与状态监控
 - **[AlarmDisplay - 报警显示](docs/AlarmDisplay-API.md)** - 分级报警管理、自动排序、确认清除
 - **[StatusIndicator - 状态指示器](docs/StatusIndicator-API.md)** - 多颜色状态、闪烁效果、历史记录
