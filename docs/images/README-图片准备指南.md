@@ -6,22 +6,9 @@
 
 所有图片统一存放在: `docs/images/` 目录
 
-## 🖼️ 需要准备的图片清单(共9张)
+## 🖼️ 需要准备的图片清单(共8张)
 
-### 1. architecture-overview.png
-**用途**: 项目架构图,展示控件库整体架构
-
-**建议内容**:
-- 控件库三层架构图(核心层/控件层/应用层)
-- 或控件库功能模块概览图
-
-**推荐尺寸**: 1200x600 像素
-
-**当前状态**: ⏳ 待添加
-
----
-
-### 2. alarm-display-page.png
+### 1. alarm-display-page.png
 **用途**: 报警界面完整展示
 
 **建议内容**:
@@ -37,7 +24,7 @@
 
 ---
 
-### 3. alarm-status-controls.png
+### 2. alarm-status-controls.png
 **用途**: 报警与状态监控控件组合展示
 
 **建议内容**:
@@ -51,7 +38,7 @@
 
 ---
 
-### 4. communication-control.png
+### 3. communication-control.png
 **用途**: 通讯控件展示
 
 **建议内容**:
@@ -66,7 +53,7 @@
 
 ---
 
-### 5. trend-chart.png
+### 4. trend-chart.png
 **用途**: 趋势图控件展示
 
 **建议内容**:
@@ -80,7 +67,7 @@
 
 ---
 
-### 6. device-button.png
+### 5. device-button.png
 **用途**: 设备控制按钮展示
 
 **建议内容**:
@@ -94,7 +81,7 @@
 
 ---
 
-### 7. login-control.png
+### 6. login-control.png
 **用途**: 登录控件展示
 
 **建议内容**:
@@ -108,7 +95,7 @@
 
 ---
 
-### 8. virtual-keyboard.png
+### 7. virtual-keyboard.png
 **用途**: 虚拟键盘展示
 
 **建议内容**:
@@ -122,7 +109,7 @@
 
 ---
 
-### 9. data-input-controls.png
+### 8. data-input-controls.png
 **用途**: 数据输入组件展示
 
 **建议内容**:
@@ -178,7 +165,6 @@
    ```
 
 2. **需要截图的页面**:
-   - ✅ MainForm - 主界面(架构图)
    - ✅ AlarmDisplayPage - 报警显示
    - ✅ StatusIndicatorPage - 状态指示器
    - ✅ CommunicationTestForm - 通讯控件
@@ -210,7 +196,6 @@
    ```
 
 2. **确保文件名匹配**:
-   - `architecture-overview.png`
    - `alarm-display-page.png`
    - `alarm-status-controls.png`
    - `communication-control.png`
@@ -245,8 +230,8 @@
 
 准备完图片后,请检查:
 
-- [ ] 所有9张图片已添加到 `docs/images/` 目录
-- [ ] README.md中包含所有9个图片链接
+- [ ] 所有8张图片已添加到 `docs/images/` 目录
+- [ ] README.md中包含所有8个图片链接
 - [ ] 文件名完全匹配(区分大小写)
 - [ ] 图片清晰,文字可读
 - [ ] 图片大小适中(建议每张<500KB)

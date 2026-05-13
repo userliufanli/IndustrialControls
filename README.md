@@ -2,8 +2,6 @@
 
 欢迎使用 IndustrialControls 控件库!本文档库提供了完整的API参考和使用指南。
 
-![IndustrialControls架构图](docs/images/architecture-overview.png)
-
 ## 📖 文档导航
 
 ### 🚀 快速开始
