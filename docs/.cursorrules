@@ -1,3 +1,0 @@
-# Cursor / AI 协作提示（可选）
-
-本仓库 WinForms 窗体维护约定见 **[design-conventions.md](./design-conventions.md)**：设计器生成 `partial` + `*.Designer.cs`，勿在运行时代码中动态挂载可见控件。

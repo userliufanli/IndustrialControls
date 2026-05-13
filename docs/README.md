@@ -1,40 +1,132 @@
-# IndustrialControls 文档中心
+# 📚 IndustrialControls 控件库 API 使用手册
 
-欢迎查阅 **IndustrialControls** 完整技术文档。本目录提供从快速入门到高级应用的全面指导，帮助您高效构建工业上位机应用程序。
+欢迎使用 IndustrialControls 控件库!本文档库提供了完整的API参考和使用指南。
 
-> **提示**: 本文档与源码保持同步更新。如发现文档与 `src/IndustrialControls` 实现存在差异，请以实际代码为准并及时反馈。
+## 📖 文档导航
 
-## 📖 快速导航
+### 🚀 快速开始
 
-| 目标 | 推荐文档 | 预计阅读时间 |
-|------|----------|-------------|
-| **快速开始** | [入门指南](getting-started.md) | 5 分钟 |
-| **设计规范** | [设计约定](design-conventions.md) | 10 分钟 |
-| **参数管理** | [参数与配置](parameters.md) | 15 分钟 |
-| **控件参考** | [控件总览](controls.md) | 20 分钟 |
+- **[API文档总览](API-INDEX.md)** - 控件库概览、快速入门、典型应用场景
 
-## 📚 文档目录
+### 🔧 控件API文档
 
-### 入门指南
-- [环境与引用](getting-started.md) — 运行 Demo、在宿主项目中引用类库、目录结构说明
+#### 报警与状态监控
+- **[AlarmDisplay - 报警显示](AlarmDisplay-API.md)** - 分级报警管理、自动排序、确认清除
+- **[StatusIndicator - 状态指示器](StatusIndicator-API.md)** - 多颜色状态、闪烁效果、历史记录
 
-### 设计开发
-- [设计约定](design-conventions.md) — `partial` 类、Designer 使用规范、运行时控件挂载原则
+#### 通讯与数据交换
+- **[CommunicationControl - 通讯控件](CommunicationControl-API.md)** - TCP客户端/服务端/串口通讯
 
-### 核心功能
-- [参数与配置管理](parameters.md) — `ParameterManager`、`ParameterAccessor`、JSON 持久化、分组策略、`AppParameters` 模式、事件与热重载
-- [控件参考总览](controls.md) — 控件命名空间、能力索引、通信模式说明、交叉引用
+#### 数据输入与验证
+- **[DataInput - 数据输入组件](DataInput-API.md)**
+  - NumericInputBox - 数值输入框
+  - ValidatedTextBox - 验证文本框
+  - DataInputPanel - 数据输入面板
 
-## 🎯 使用场景
+#### 数据可视化
+- **[TrendChart - 趋势图](TrendChart-API.md)** - 多通道实时数据曲线显示
 
-- **新项目开发**: 按顺序阅读上述文档，建立完整的知识体系
-- **控件使用**: 直接查阅 [控件总览](controls.md) 获取 API 参考
-- **参数配置**: 参考 [参数与配置](parameters.md) 实现数据持久化
-- **设计器集成**: 遵循 [设计约定](design-conventions.md) 避免常见陷阱
+#### 设备控制
+- **[DeviceControlButton - 设备控制按钮](DeviceControlButton-API.md)** - 多状态切换、长按确认
 
-## 🔗 相关链接
+#### 用户认证
+- **[FlatLoginControl - 登录控件](FlatLoginControl-API.md)** - 用户认证、参数持久化
 
-- 仓库根目录 [README.md](../README.md) — 项目简介与最快运行步骤
-- 源码目录: `src/IndustrialControls/`
-- 演示项目: `samples/IndustrialControls.Demo/`
-- 模板工程: `samples/IndustrialControls.Template/`
+#### 虚拟键盘
+- **[VirtualKeyboard - 虚拟键盘系统](VirtualKeyboard-API.md)**
+  - VirtualKeyboardPanel - 键盘面板
+  - VirtualKeyboardForm - 键盘窗体
+  - VirtualKeyboardManager - 全局管理器
+
+## 🎯 如何使用文档
+
+### 1. 查找控件
+
+通过 [API文档总览](API-INDEX.md) 查找需要的控件,点击链接进入详细文档。
+
+### 2. 学习使用
+
+每个控件文档包含:
+- ✅ **概述** - 控件功能简介
+- ✅ **快速开始** - 最简使用示例
+- ✅ **属性说明** - 所有公开属性详解
+- ✅ **方法说明** - 所有公开方法详解
+- ✅ **事件说明** - 所有可用事件详解
+- ✅ **完整示例** - 实际应用场景代码
+- ✅ **最佳实践** - 使用建议和注意事项
+
+### 3. 参考示例
+
+建议配合示例项目学习:
+- `samples/IndustrialControls.Demo/` - 控件演示项目
+- `samples/IndustrialControls.Template/` - 完整应用模板
+
+## 📊 文档统计
+
+| 类别 | 数量 |
+|------|------|
+| 控件API文档 | 8 |
+| 总览文档 | 1 |
+| 代码示例 | 50+ |
+| 文档总行数 | 4500+ |
+
+## 💡 学习路径
+
+### 初学者
+1. 阅读 [API文档总览](API-INDEX.md)
+2. 查看快速开始示例
+3. 运行Demo项目
+
+### 进阶使用
+1. 深入学习各控件API
+2. 参考完整示例代码
+3. 阅读最佳实践
+
+### 高级开发
+1. 查看源码实现
+2. 自定义控件扩展
+3. 性能优化建议
+
+## 🔍 搜索技巧
+
+在文档中快速查找:
+- **Ctrl+F** - 搜索关键字
+- **Ctrl+Click** - 跳转链接
+- 使用文档内的目录快速定位
+
+## 📝 文档结构
+
+每个控件文档遵循统一结构:
+
+```
+控件名称-API.md
+├── 概述
+├── 命名空间
+├── 继承关系
+├── 快速开始 (多个示例)
+├── 属性 (详细列表)
+├── 方法 (详细列表)
+├── 事件 (详细列表)
+├── 枚举类型
+├── 关联类型
+├── 完整示例 (实际场景)
+├── 注意事项
+├── 最佳实践
+└── 相关控件
+```
+
+## 🛠️ 技术支持
+
+- **项目路径**: `c:\Users\13626\Desktop\Winform上位机控件库`
+- **源码位置**: `src\IndustrialControls\`
+- **示例项目**: `samples\IndustrialControls.Demo\`
+
+## 📅 更新记录
+
+- **2024**: 初始版本,包含所有核心控件API文档
+
+---
+
+**祝您使用愉快!** 🎉
+
+如有问题,请参考文档中的"注意事项"和"最佳实践"部分。
