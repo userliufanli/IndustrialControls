@@ -1,102 +1,349 @@
 # IndustrialControls
 
-基于 **.NET Framework 4.8** 的 **WinForms** 工业上位机控件库：状态指示、报警列表、通信配置与收发、趋势与仪表盘、虚拟键盘、主题与参数持久化等，适合搭建产线监控、设备操作站、轻量 HMI 等桌面应用。
+基于 **.NET Framework 4.8** 的 **WinForms** 工业上位机控件库：状态指示、报警、通信、趋势与仪表盘、虚拟键盘、主题与参数持久化等。仓库含类库 `src/IndustrialControls`、演示 `samples/IndustrialControls.Demo`、模板 `samples/IndustrialControls.Template`。
 
-仓库同时提供**可复用的类库**与**示例工程**：Demo 用于逐项看控件效果，Template 展示多页面上位机骨架，便于拷贝改造。
+**本文档为仓库内唯一的 Markdown 说明。** WinForms 设计器约定摘要见 `docs/.cursorrules`。与源码不一致时以 `src/IndustrialControls` 为准。
 
 ---
 
-## 技术栈与运行环境
+## 目录
+
+- [仓库概览](#仓库概览)
+- [使用手册](#使用手册)
+- [快速入门示例代码](#快速入门示例代码)
+- [ParameterManager 进阶](#parametermanager-进阶)
+- [附录控件与命名空间](#附录控件与命名空间)
+- [版本与反馈](#版本与反馈)
+
+---
+
+## 仓库概览
+
+### 技术栈与运行环境
 
 | 项目 | 说明 |
 |------|------|
-| 运行时 / 目标框架 | .NET Framework 4.8 |
+| 目标框架 | .NET Framework 4.8 |
 | UI | Windows Forms |
 | 语言 | C# |
-| 推荐开发环境 | Visual Studio 2019 及以上（建议 VS 2022），Windows 10 / 11 |
+| 推荐环境 | Visual Studio 2019+（建议 2022），Windows 10 / 11 |
 
-类库为传统 `csproj`（非 SDK 风格），建议使用 **Visual Studio** 打开解决方案进行生成与设计器开发；含 `.resx` 的 WinForms 项目以 VS 内编译结果为推荐。
+类库为传统 `csproj`，建议用 Visual Studio 打开 `IndustrialControls.sln` 生成；含 `.resx` 的工程以 VS 内编译为准。
 
----
-
-## 仓库里有什么
+### 目录说明
 
 | 路径 | 作用 |
 |------|------|
-| `IndustrialControls.sln` | 解决方案入口，包含类库与示例项目。 |
-| `src/IndustrialControls/` | **核心类库**：`Controls`（各工业控件）、`Theme`（主题）、`Core`（如 `ParameterManager`）、`Utilities`、`Automation`（如 Modbus 会话等，随版本演进以源码为准）。 |
-| `samples/IndustrialControls.Demo/` | **演示程序**：各控件与能力的集中演示，适合学习 API 与交互。 |
-| `samples/IndustrialControls.Template/` | **模板程序**：多页面、导航、业务骨架示例，适合作为新上位机项目的起点。 |
-| `docs/` | **文档**：使用手册、快速入门、各控件独立说明（`docs/controls/`）、参数管理进阶等。 |
+| `IndustrialControls.sln` | 解决方案 |
+| `src/IndustrialControls/` | 类库：Controls、Core、Theme、Utilities、Automation 等 |
+| `samples/IndustrialControls.Demo/` | 控件与能力演示 |
+| `samples/IndustrialControls.Template/` | 多页面上位机模板 |
+| `docs/.cursorrules` | 设计器协作约定（摘要） |
 
-根目录已包含 `.gitignore`，避免将 `bin`、`obj`、`.vs` 等提交到版本库。
+### 五分钟上手
 
----
+1. VS 打开 `IndustrialControls.sln`。  
+2. 将 **IndustrialControls.Demo** 设为启动项目并运行。  
+3. 需要页面骨架时改用 **IndustrialControls.Template**。
 
-## 五分钟上手
+### 在你自己的工程中引用
 
-1. 克隆本仓库后，用 Visual Studio 打开 **`IndustrialControls.sln`**。  
-2. 在解决方案资源管理器中将 **`IndustrialControls.Demo`** 设为启动项目。  
-3. 选择 **Debug | Any CPU**（或 Release），生成并运行，即可在界面中逐项查看控件行为。  
-4. 若希望从完整页面结构起步，可将启动项目改为 **`IndustrialControls.Template`** 并运行，对照其窗体与页面组织方式改造自己的工程。
+对宿主 WinForms（.NET 4.8）项目添加 **项目引用** → `src/IndustrialControls/IndustrialControls.csproj`（或引用 `IndustrialControls.dll` 及相同依赖）。控件在工具箱或代码中使用；业务逻辑写在非 Designer 的 `partial` 类中。
 
----
+### 功能模块（摘要）
 
-## 在你自己的 WinForms 工程里引用
-
-1. 在同一解决方案中**添加现有项目**，选择 `src/IndustrialControls/IndustrialControls.csproj`，或在独立解决方案中用「添加 → 项目引用」指向该 `csproj`。  
-2. 确保你的应用目标框架为 **.NET Framework 4.8**，且依赖与类库一致（例如类库已引用的程序集在宿主侧无需重复添加时，以实际编译提示为准）。  
-3. 生成成功后，在工具箱中浏览或手动添加控件，即可像使用第三方控件一样将本库控件拖到窗体；业务逻辑、数据绑定与事件处理建议写在非 Designer 的 `partial` 类文件中，与设计器生成的布局代码分离。
-
-当前未强制要求通过 NuGet 分发；若你本地有打包流程，可自行生成程序集并在其他解决方案中引用 `IndustrialControls.dll`（需同时满足依赖与许可约定）。
+- **界面与状态**：状态指示器、设备按钮、报警列表。  
+- **数据**：数值框、验证文本框、标签+数值行、仪表盘、工业进度条、多通道趋势图。  
+- **通信**：TCP 客户端/服务端、串口（`CommunicationMode`，以源码为准）。  
+- **人机**：虚拟键盘。  
+- **登录与主题**：`FlatLoginControl`、`LoginUserManagementForm`、`ThemeManager`。  
+- **参数**：`ParameterManager`、`ParameterAccessor`、`ParameterSection`。
 
 ---
 
-## 功能模块一览（按用途）
+## 使用手册
 
-**界面与状态**
+### 1. 概述
 
-- 状态指示器、设备多状态按钮、报警列表与确认/筛选等，便于做设备一览与操作反馈。  
+**IndustrialControls** 提供工业常用 UI、通信与参数基础设施。推荐用静态类（如 Demo 中 `AppParameters`）封装 `ParameterAccessor` / `ParameterSection`，业务代码只访问强类型属性。
 
-**数据录入与展示**
+### 2. 环境与引用
 
-- 数值输入框、带正则/预设的验证文本框、标签加数值单行面板；仪表盘、工业进度条、多通道趋势图等，便于参数设定与过程量展示。  
+| 项目 | 要求 |
+|------|------|
+| 操作系统 | Windows 10 / 11 |
+| 目标框架 | .NET Framework 4.8 |
+| 推荐 IDE | Visual Studio 2022（.NET 桌面开发） |
 
-**通信与人机**
+引用方式：**项目引用** 或 **程序集引用**（依赖见类库 `.csproj`）。
 
-- 通信用户控件与无界面管理器，支持 TCP 客户端/服务端、串口等模式（具体枚举与 API 以源码与文档为准）；虚拟键盘面板与浮动窗体，配合焦点管理器接入触摸屏场景。  
+```csharp
+using IndustrialControls.Core;
+// using IndustrialControls.Controls.StatusIndicator;
+// using IndustrialControls.Theme;
+```
 
-**登录与配置**
+### 3. 项目与程序集结构
 
-- 扁平风格登录控件与用户管理窗体，与参数管理器分组配合持久化用户数据；主题管理器提供亮色/暗色等统一配色。  
+| 路径 | 说明 |
+|------|------|
+| `src/IndustrialControls/Controls/` | 各控件子目录 |
+| `src/IndustrialControls/Core/` | `ParameterManager`、`ParameterAccessor`、`ParameterSection`、`BaseControl` 等 |
+| `src/IndustrialControls/Theme/` | 主题 |
+| `src/IndustrialControls/Utilities/` | 工具类 |
+| `samples/IndustrialControls.Demo/` | 演示程序 |
 
-**参数与自动化**
+### 4. 参数与配置（推荐用法）
 
-- `ParameterManager` 等用于 JSON 等本地配置与热重载相关能力（详见文档）；`Automation` 下提供产线通信相关类型（如 Modbus），以实际源码与后续文档为准。
+**推荐**：`ParameterAccessor.Default` → 默认 `%AppData%\IndustrialControls\parameters.json`（`GetDefaultConfigPath()`）；`ParameterAccessor.Section("分组")` → `ParameterSection`，用 `Get`/`Set` 封装字段；其它文件用 `ParameterAccessor.Register("逻辑名", path)` 再 `.Section(...)`。
 
-更细的属性、事件与代码片段见下方「文档导航」中的控件专题。
+```csharp
+public static class AppParameters
+{
+    public static ParameterManager Default => ParameterAccessor.Default;
+    private static readonly ParameterSection _app = ParameterAccessor.Section("App");
+
+    public static class App
+    {
+        public static string Language
+        {
+            get => _app.Get("Language", "zh-CN");
+            set => _app.Set("Language", value);
+        }
+    }
+
+    public static ParameterManager CommConfig => ParameterAccessor.Register(
+        "Communication",
+        System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Config", "communication.json"));
+
+    private static readonly ParameterSection _comm = CommConfig.Section("CommConfig");
+
+    public static class Comm
+    {
+        public static string TcpIp
+        {
+            get => _comm.Get("TcpIp", "127.0.0.1");
+            set => _comm.Set("TcpIp", value);
+        }
+    }
+}
+```
+
+窗体中：`AppParameters.App.Language = "zh-CN";`
+
+**直接使用 `ParameterManager`**：与内置控件共享同一路径单例、脚本工具等；同一路径勿多实例互盖。
+
+### 5. 参数系统 API 参考
+
+**`ParameterAccessor`**：`Default`、`GetDefaultConfigPath()`、`Section(group)`、`Register`、`Resolve`/`TryResolve`/`Remove`、`Get<T>`/`Set<T>`/`SetBatch`。
+
+**`ParameterSection`**：`Get<T>`、`Set<T>`、`Contains`、`TryGet`、`GetOrSet`、`Delete`、`SetBatch`/`GetBatch`。
+
+**`ParameterManager`**：`GetValue`/`SetValue`、`Delete`/`DeleteGroup`、`GetGroupNames`/`GetKeys`、`LoadFromFile`/`SaveToFile`、`SuspendAutoSave`/`ResumeAutoSave`、`Section`、`EnableHotReload`、`ParameterChanged`/`SaveFailed`/`LoadFailed`、`Dispose`。设计器模式下会跳过文件与监视器。
+
+### 6. JSON 配置文件说明
+
+根对象含版本、时间、**分组**；键值带类型元数据（`JavaScriptSerializer`）。保存为临时文件替换并尝试 `.bak`。读入数值可能为 `long`/`double`，管理器会转换到目标类型。勿手改破坏结构；外部保存可触发热重载。
+
+### 7. 事件、热更新与线程安全
+
+- **`ParameterChanged`**：含 `GroupName`、`Key`、`Value`、`ChangeType`、`Timestamp`；非 UI 线程订阅时应用 `Invoke`/`BeginInvoke`。  
+- **热更新**：`EnableHotReload` 为 true 时监视目录变更，防抖后 `LoadFromFile()`，发出 `Reloaded`。  
+- **防抖**：`SetValue` 后短时合并写盘；`SaveToFile()` 立即保存。  
+- **线程安全**：内部读写锁；界面更新仍在 UI 线程为宜。
+
+### 8. WinForms 窗体开发约定
+
+见 `docs/.cursorrules`：设计器维护 `partial` + `Designer.cs`；禁止在运行时 `new` 可见控件并挂到窗体（`InitializeComponent` 内除外）。
+
+### 9. 演示工程 IndustrialControls.Demo
+
+展示主要控件、`AppParameters`、`ParameterManagerTestPage`（参数编辑与日志）。在 VS 中设为启动项目生成运行；命令行 `dotnet msbuild` 可能需额外资源选项，**以 VS 为准**。
+
+### 10. 控件与主题一览
+
+各控件说明见文末 **[附录控件与命名空间](#附录控件与命名空间)**。
+
+| 区域 | 典型内容 |
+|------|-----------|
+| `Controls/StatusIndicator` | 状态指示器 |
+| `Controls/DeviceButton` | 设备按钮 |
+| `Controls/Alarm` | 报警 |
+| `Controls/Communication` | 通信 |
+| `Controls/DataInput` | 数据输入与校验 |
+| `Controls/DataVisualization` | 趋势、仪表、进度条 |
+| `Controls/VirtualKeyboard` | 虚拟键盘 |
+| `Controls/Login` | 登录与用户管理 |
+| `Theme` | `ThemeManager` |
+
+### 11. 常见问题
+
+1. **默认配置路径**：`ParameterAccessor.GetDefaultConfigPath()`，通常为 `%AppData%\IndustrialControls\parameters.json`。  
+2. **参数变更 UI 不刷新**：订阅对应 `ParameterManager.ParameterChanged` 或 `Reloaded` 后重绑。  
+3. **`Register` 重复路径**：同一逻辑名单例，以首次注册为准，路径应一致。  
+4. **设计器报错**：确认目标框架 4.8 与引用一致（如 `System.Web.Extensions`）。  
+5. **旧资料冲突**：以本 README 与当前源码为准；核心类型为 `ParameterManager`、`ParameterAccessor`、`ParameterSection`。
 
 ---
 
-## 文档导航
+## 快速入门示例代码
 
-建议新读者按顺序：**使用手册（环境与约定）→ 快速入门 → 按需打开各控件文档**。
+### 环境
 
-| 文档 | 适合谁 |
-|------|--------|
-| [文档中心 `docs/README.md`](docs/README.md) | 想看完整文档目录与推荐阅读路径。 |
-| [IndustrialControls 使用手册](docs/IndustrialControls使用手册.md) | 需要环境、引用、参数体系、Demo 与常见问题总览。 |
-| [快速入门指南](docs/快速入门指南.md) | 希望用最短示例跑通第一个窗体与典型控件。 |
-| [控件与核心模块文档索引](docs/controls/README.md) | 按控件查阅说明、命名空间与示例。 |
-| [ParameterManager 使用指南](docs/ParameterManager使用指南.md) | 参数分组、持久化与热重载等进阶内容。 |
+VS 2022、.NET Framework 4.8；宿主项目 **项目引用** `IndustrialControls.csproj`。
+
+### 状态指示器
+
+```csharp
+using IndustrialControls.Controls.StatusIndicator;
+
+var indicator = new StatusIndicator
+{
+    State = IndicatorState.Running,
+    Label = "电机1",
+    EnableBlink = true,
+    BlinkInterval = 500,
+    Shape = IndicatorShape.Circle,
+    Size = new Size(60, 80)
+};
+indicator.StateChanged += (s, state) => { };
+```
+
+### 设备按钮
+
+```csharp
+using IndustrialControls.Controls.DeviceButton;
+
+var btn = new DeviceControlButton { Size = new Size(120, 40), EnableLongPress = true, LongPressTime = 1000 };
+btn.SetStates(
+    new DeviceButtonState { DisplayText = "运行", Color = Color.Green },
+    new DeviceButtonState { DisplayText = "停止", Color = Color.Red });
+btn.StateChanged += (s, state) => { };
+```
+
+### 报警
+
+```csharp
+using IndustrialControls.Controls.Alarm;
+
+var alarmDisplay = new AlarmDisplay { Size = new Size(400, 300), AutoScroll = true };
+alarmDisplay.AddAlarm(AlarmLevel.Emergency, "电机过载", "设备A");
+alarmDisplay.AcknowledgeAll();
+```
+
+### 参数（直接 `ParameterManager`）
+
+```csharp
+using IndustrialControls.Core;
+
+var pm = new ParameterManager("config/appsettings.json");
+pm.SetValue("Communication", "ServerIP", "192.168.1.100");
+string ip = pm.GetValue("Communication", "ServerIP", "127.0.0.1");
+pm.ParameterChanged += (s, e) => { };
+```
+
+### 主题
+
+```csharp
+using IndustrialControls.Theme;
+
+ThemeManager.Instance.ApplyTheme<FlatDarkTheme>();
+var colors = ThemeManager.Instance.CurrentTheme.Colors;
+```
+
+### 通信（异步，以当前控件 API 为准）
+
+```csharp
+using IndustrialControls.Controls.Communication;
+
+var comm = new CommunicationControl
+{
+    Mode = CommunicationMode.Tcp,
+    TcpIp = "192.168.1.100",
+    TcpPort = 502
+};
+comm.StateChanged += (s, st) => { };
+// await comm.ConnectAsync();
+// await comm.SendAsync(new byte[] { 0x01, 0x02 });
+```
+
+### 虚拟键盘
+
+```csharp
+using IndustrialControls.Controls.VirtualKeyboard;
+
+VirtualKeyboardManager.Initialize();
+var vk = new VirtualKeyboardForm();
+vk.SetTargetControl(myTextBox);
+vk.KeyInput += (s, e) => { /* 按 e.Key / e.Target 写入，或参考 Demo */ };
+vk.ShowAt(myTextBox.PointToScreen(new Point(0, myTextBox.Height + 4)));
+```
+
+---
+
+## ParameterManager 进阶
+
+### 概述
+
+JSON 持久化、分组、类型转换、读写锁、热重载、防抖保存。
+
+### 基础
+
+```csharp
+var paramManager = new ParameterManager(
+    Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "config", "settings.json"));
+paramManager.SetValue("Network", "ServerIP", "192.168.1.100");
+int port = paramManager.GetValue("Network", "Port", 80);
+```
+
+### 变更监听
+
+订阅 `ParameterChanged`，按 `ParameterChangeType`（Added、Modified、Deleted、GroupDeleted、Reloaded）分支处理。
+
+### 删除与枚举
+
+`Delete(group,key)`、`DeleteGroup(group)`、`GetGroupNames()`、`GetKeys(group)`、`Contains`。
+
+### 配置文件格式（示意）
+
+根含 `Version`、`LastModified`、`Groups`；每组含 `Name`、`Parameters` 字典，键下含 `Value`、`Type` 等（以实际序列化结果为准）。
+
+### 最佳实践
+
+单例或 `ParameterAccessor` 管理路径；启动时补默认值；订阅 `SaveFailed`/`LoadFailed`；批量修改用 `SuspendAutoSave`/`ResumeAutoSave`。
+
+### 性能与线程
+
+防抖合并写盘；原子写入（临时文件 + 替换）；同值不写。多线程可调 `Get`/`Set`，UI 更新仍在 UI 线程。
+
+### 常见问题
+
+配置放在可写目录（如 `ApplicationData`）；热重载需目录存在且 `EnableHotReload` 为 true；整数从 JSON 可能为 `long`，用 `Convert.ToInt32` 等安全转换。
+
+---
+
+## 附录控件与命名空间
+
+| 主题 | 命名空间 | 说明 |
+|------|----------|------|
+| StatusIndicator | `IndustrialControls.Controls.StatusIndicator` | `IndicatorState`、`IndicatorShape`、闪烁与历史 |
+| DeviceControlButton | `IndustrialControls.Controls.DeviceButton` | `SetStates`、`DisplayMode`、长按 |
+| AlarmDisplay | `IndustrialControls.Controls.Alarm` | `AlarmLevel`、确认与清除 |
+| NumericInputBox | `IndustrialControls.Controls.DataInput` | `double` 值、`Step`、`ShowButtons` |
+| ValidatedTextBox | `IndustrialControls.Controls.DataInput` | `ValidationPreset`、`ValidationMode` |
+| DataInputPanel | `IndustrialControls.Controls.DataInput` | 单行 标签+数值+单位 |
+| GaugeControl | `IndustrialControls.Controls.DataVisualization` | 圆弧仪表、阈值 |
+| IndustrialProgressBar | `IndustrialControls.Controls.DataVisualization` | 分段、阈值色 |
+| TrendChart | `IndustrialControls.Controls.DataVisualization` | `AddChannel`、`AddDataPoint` |
+| CommunicationControl / Manager | `IndustrialControls.Controls.Communication` | `Tcp`/`TcpServer`/`Serial`，异步收发 |
+| VirtualKeyboard | `IndustrialControls.Controls.VirtualKeyboard` | Panel、Form、`VirtualKeyboardManager` |
+| FlatLoginControl 等 | `IndustrialControls.Controls.Login` | 登录、`LoginUserManagementForm` |
+| ParameterManager | `IndustrialControls.Core` | 见上文 |
+| ThemeManager | `IndustrialControls.Theme` | `FlatLightTheme` / `FlatDarkTheme` |
 
 ---
 
 ## 版本与反馈
 
-- 程序集版本、文件版本等信息见：`src/IndustrialControls/Properties/AssemblyInfo.cs`（当前仓库内为 **1.0.0.0**，若你已本地修改以实际文件为准）。  
-- 缺陷、需求或文档笔误，欢迎在仓库中提交 **Issue** 或 **Pull Request**。
-
----
-
-本 README 随仓库演进更新；与某篇子文档或旧截图不一致时，以 **`src/IndustrialControls`** 中的公开 API 与 **`docs`** 内对应页面为准。
+- 程序集版本：`src/IndustrialControls/Properties/AssemblyInfo.cs`。  
+- Issue / Pull Request 欢迎。
