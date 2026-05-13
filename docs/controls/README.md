@@ -26,9 +26,10 @@
 | [ParameterManager（参数管理器）](./ParameterManager.md) | 持久化参数；详见进阶 [ParameterManager使用指南](../ParameterManager使用指南.md) |
 | [ThemeManager（主题管理器）](./ThemeManager.md) | 亮色 / 暗色主题与 `ThemeColors` |
 
-## 其他总览文档
+## 与总文档的关系
 
-- [文档中心首页](../README.md)  
+- [文档中心](../README.md)  
 - [IndustrialControls 使用手册](../IndustrialControls使用手册.md)  
 - [快速入门指南](../快速入门指南.md)  
-- [API 使用说明书（索引）](../API使用说明书.md)  
+
+控件 API 以 **`controls/` 下各篇** 与源码为准；不再维护单独的「API 合订索引」文件。

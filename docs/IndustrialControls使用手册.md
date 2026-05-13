@@ -27,7 +27,7 @@
 **IndustrialControls** 是一套面向工业上位机的 WinForms 控件与基础设施库，提供：
 
 - 工业场景常用 UI（状态指示、设备按钮、报警、数据输入、虚拟键盘等）
-- 通信相关控件与能力（TCP/UDP/串口等，与参数持久化配合）
+- 通信相关控件与能力（如 TCP 客户端/服务端、串口等，以源码为准；与参数持久化配合）
 - **主题系统**（亮色/暗色等）
 - **参数管理**（JSON 持久化、分组、类型转换、防抖保存、可选文件热重载）
 
@@ -74,7 +74,7 @@ using IndustrialControls.Core;
 | `src/IndustrialControls/Theme/` | 主题接口与实现 |
 | `src/IndustrialControls/Utilities/` | 通用工具类 |
 | `samples/IndustrialControls.Demo/` | 官方演示程序 |
-| `docs/` | 文档（本手册、`README.md`、API 说明等） |
+| `docs/` | 文档（本手册、[文档中心](README.md)、[控件专题](controls/README.md) 等） |
 
 ---
 
@@ -254,7 +254,7 @@ int w = AppParameters.UI.WindowWidth;
 
 ## 10. 控件与主题一览
 
-各控件的属性、事件、枚举与示例已拆分为 **`docs/controls/`** 下独立页面；总入口见 **[控件与核心模块文档索引](./controls/README.md)**。合订索引见 **[API使用说明书](./API使用说明书.md)**。本库主要控件目录包括（以仓库为准）：
+各控件的属性、事件、枚举与示例见 **`docs/controls/`** 下独立页面，总入口为 **[控件与核心模块文档索引](./controls/README.md)**。本库主要控件目录包括（以仓库为准）：
 
 | 区域 | 典型控件 |
 |------|-----------|
@@ -303,7 +303,6 @@ int w = AppParameters.UI.WindowWidth;
 | [docs/README.md](./README.md) | 文档中心总览与目录 |
 | [快速入门指南](./快速入门指南.md) | 最短路径上手示例 |
 | [controls/README.md](./controls/README.md) | 各控件独立文档索引 |
-| [API使用说明书](./API使用说明书.md) | 链接到上述控件文档的索引页 |
 | [ParameterManager使用指南](./ParameterManager使用指南.md) | 参数管理器进阶说明（若与源码冲突以源码为准） |
 | `docs/.cursorrules` | 含 WinForms 设计器协作规则 |
 

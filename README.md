@@ -87,9 +87,8 @@
 | [文档中心 `docs/README.md`](docs/README.md) | 想看完整文档目录与推荐阅读路径。 |
 | [IndustrialControls 使用手册](docs/IndustrialControls使用手册.md) | 需要环境、引用、参数体系、Demo 与常见问题总览。 |
 | [快速入门指南](docs/快速入门指南.md) | 希望用最短示例跑通第一个窗体与典型控件。 |
-| [控件与核心模块文档索引](docs/controls/README.md) | 已集成到项目里，要查**某一个控件**的说明与示例。 |
-| [API 使用说明书（索引）](docs/API使用说明书.md) | 从命名空间与主题快速跳转到上述各篇。 |
-| [ParameterManager 使用指南](docs/ParameterManager使用指南.md) | 要深入参数分组、持久化与热重载等行为。 |
+| [控件与核心模块文档索引](docs/controls/README.md) | 按控件查阅说明、命名空间与示例。 |
+| [ParameterManager 使用指南](docs/ParameterManager使用指南.md) | 参数分组、持久化与热重载等进阶内容。 |
 
 ---
 
