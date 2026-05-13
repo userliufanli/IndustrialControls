@@ -11,6 +11,9 @@ namespace IndustrialControls.Demo.Pages
             IndustrialControls.Controls.DataVisualization.ChannelConfig channelConfig1 = new IndustrialControls.Controls.DataVisualization.ChannelConfig();
             this.descLabel = new System.Windows.Forms.Label();
             this.progressGroup = new System.Windows.Forms.GroupBox();
+            this.progressBar1 = new IndustrialControls.Controls.DataVisualization.IndustrialProgressBar();
+            this.progressBar2 = new IndustrialControls.Controls.DataVisualization.IndustrialProgressBar();
+            this.progressBar3 = new IndustrialControls.Controls.DataVisualization.IndustrialProgressBar();
             this.logGroup = new System.Windows.Forms.GroupBox();
             this.logTextBox = new System.Windows.Forms.TextBox();
             this.btnPanel = new System.Windows.Forms.Panel();
@@ -18,9 +21,6 @@ namespace IndustrialControls.Demo.Pages
             this.btnClearChart = new System.Windows.Forms.Button();
             this.btnTestGauge = new System.Windows.Forms.Button();
             this.btnChangeCornerRadius = new System.Windows.Forms.Button();
-            this.progressBar1 = new IndustrialControls.Controls.DataVisualization.IndustrialProgressBar();
-            this.progressBar2 = new IndustrialControls.Controls.DataVisualization.IndustrialProgressBar();
-            this.progressBar3 = new IndustrialControls.Controls.DataVisualization.IndustrialProgressBar();
             this.gauge2 = new IndustrialControls.Controls.DataVisualization.GaugeControl();
             this.gauge1 = new IndustrialControls.Controls.DataVisualization.GaugeControl();
             this.trendChart = new IndustrialControls.Controls.DataVisualization.TrendChart();
@@ -49,25 +49,67 @@ namespace IndustrialControls.Demo.Pages
             this.progressGroup.Controls.Add(this.progressBar1);
             this.progressGroup.Controls.Add(this.progressBar2);
             this.progressGroup.Controls.Add(this.progressBar3);
-            this.progressGroup.Location = new System.Drawing.Point(20, 295);
+            this.progressGroup.Location = new System.Drawing.Point(24, 193);
             this.progressGroup.Margin = new System.Windows.Forms.Padding(4);
             this.progressGroup.Name = "progressGroup";
             this.progressGroup.Padding = new System.Windows.Forms.Padding(4);
-            this.progressGroup.Size = new System.Drawing.Size(602, 160);
+            this.progressGroup.Size = new System.Drawing.Size(604, 160);
             this.progressGroup.TabIndex = 4;
             this.progressGroup.TabStop = false;
             this.progressGroup.Text = "工业进度条";
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.DangerThreshold = 10D;
+            this.progressBar1.Direction = IndustrialControls.Controls.DataVisualization.ProgressDirection.Vertical;
+            this.progressBar1.InverseThreshold = true;
+            this.progressBar1.Label = "CPU";
+            this.progressBar1.Location = new System.Drawing.Point(549, 13);
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(4);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.ShowValue = false;
+            this.progressBar1.Size = new System.Drawing.Size(26, 139);
+            this.progressBar1.TabIndex = 0;
+            this.progressBar1.Value = 100D;
+            this.progressBar1.WarningThreshold = 50D;
+            // 
+            // progressBar2
+            // 
+            this.progressBar2.DangerThreshold = 95D;
+            this.progressBar2.ForeColor = System.Drawing.Color.Black;
+            this.progressBar2.Label = "内存:";
+            this.progressBar2.Location = new System.Drawing.Point(3, 31);
+            this.progressBar2.Margin = new System.Windows.Forms.Padding(4);
+            this.progressBar2.Name = "progressBar2";
+            this.progressBar2.Size = new System.Drawing.Size(506, 30);
+            this.progressBar2.TabIndex = 1;
+            this.progressBar2.TextColor = System.Drawing.Color.Black;
+            this.progressBar2.Value = 94D;
+            this.progressBar2.WarningThreshold = 100D;
+            // 
+            // progressBar3
+            // 
+            this.progressBar3.BackColor = System.Drawing.Color.Transparent;
+            this.progressBar3.DangerThreshold = 95D;
+            this.progressBar3.Location = new System.Drawing.Point(34, 89);
+            this.progressBar3.Margin = new System.Windows.Forms.Padding(4);
+            this.progressBar3.Name = "progressBar3";
+            this.progressBar3.ShowValue = false;
+            this.progressBar3.Size = new System.Drawing.Size(475, 30);
+            this.progressBar3.TabIndex = 2;
+            this.progressBar3.Value = 78D;
+            this.progressBar3.WarningThreshold = 85D;
             // 
             // logGroup
             // 
             this.logGroup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.logGroup.Controls.Add(this.logTextBox);
-            this.logGroup.Location = new System.Drawing.Point(20, 695);
+            this.logGroup.Location = new System.Drawing.Point(12, 568);
             this.logGroup.Margin = new System.Windows.Forms.Padding(4);
             this.logGroup.Name = "logGroup";
             this.logGroup.Padding = new System.Windows.Forms.Padding(4);
-            this.logGroup.Size = new System.Drawing.Size(614, 110);
+            this.logGroup.Size = new System.Drawing.Size(616, 110);
             this.logGroup.TabIndex = 5;
             this.logGroup.TabStop = false;
             this.logGroup.Text = "事件日志";
@@ -84,7 +126,7 @@ namespace IndustrialControls.Demo.Pages
             this.logTextBox.Name = "logTextBox";
             this.logTextBox.ReadOnly = true;
             this.logTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.logTextBox.Size = new System.Drawing.Size(606, 88);
+            this.logTextBox.Size = new System.Drawing.Size(608, 88);
             this.logTextBox.TabIndex = 0;
             // 
             // btnPanel
@@ -93,7 +135,7 @@ namespace IndustrialControls.Demo.Pages
             this.btnPanel.Controls.Add(this.btnClearChart);
             this.btnPanel.Controls.Add(this.btnTestGauge);
             this.btnPanel.Controls.Add(this.btnChangeCornerRadius);
-            this.btnPanel.Location = new System.Drawing.Point(20, 819);
+            this.btnPanel.Location = new System.Drawing.Point(12, 692);
             this.btnPanel.Margin = new System.Windows.Forms.Padding(4);
             this.btnPanel.Name = "btnPanel";
             this.btnPanel.Size = new System.Drawing.Size(614, 50);
@@ -155,58 +197,16 @@ namespace IndustrialControls.Demo.Pages
             this.btnChangeCornerRadius.UseVisualStyleBackColor = true;
             this.btnChangeCornerRadius.Click += new System.EventHandler(this.btnChangeCornerRadius_Click);
             // 
-            // progressBar1
-            // 
-            this.progressBar1.DangerThreshold = 10D;
-            this.progressBar1.Direction = IndustrialControls.Controls.DataVisualization.ProgressDirection.Vertical;
-            this.progressBar1.InverseThreshold = true;
-            this.progressBar1.Label = "CPU";
-            this.progressBar1.Location = new System.Drawing.Point(549, 13);
-            this.progressBar1.Margin = new System.Windows.Forms.Padding(4);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.ShowValue = false;
-            this.progressBar1.Size = new System.Drawing.Size(26, 139);
-            this.progressBar1.TabIndex = 0;
-            this.progressBar1.Value = 100D;
-            this.progressBar1.WarningThreshold = 50D;
-            // 
-            // progressBar2
-            // 
-            this.progressBar2.DangerThreshold = 95D;
-            this.progressBar2.ForeColor = System.Drawing.Color.Black;
-            this.progressBar2.Label = "内存:";
-            this.progressBar2.Location = new System.Drawing.Point(3, 31);
-            this.progressBar2.Margin = new System.Windows.Forms.Padding(4);
-            this.progressBar2.Name = "progressBar2";
-            this.progressBar2.Size = new System.Drawing.Size(506, 30);
-            this.progressBar2.TabIndex = 1;
-            this.progressBar2.TextColor = System.Drawing.Color.Black;
-            this.progressBar2.Value = 94D;
-            this.progressBar2.WarningThreshold = 100D;
-            // 
-            // progressBar3
-            // 
-            this.progressBar3.BackColor = System.Drawing.Color.Transparent;
-            this.progressBar3.DangerThreshold = 95D;
-            this.progressBar3.Location = new System.Drawing.Point(34, 89);
-            this.progressBar3.Margin = new System.Windows.Forms.Padding(4);
-            this.progressBar3.Name = "progressBar3";
-            this.progressBar3.ShowValue = false;
-            this.progressBar3.Size = new System.Drawing.Size(475, 30);
-            this.progressBar3.TabIndex = 2;
-            this.progressBar3.Value = 78D;
-            this.progressBar3.WarningThreshold = 85D;
-            // 
             // gauge2
             // 
             this.gauge2.BackColor = System.Drawing.Color.Transparent;
             this.gauge2.DangerThreshold = 2700D;
             this.gauge2.ForeColor = System.Drawing.Color.Black;
-            this.gauge2.Location = new System.Drawing.Point(20, 473);
+            this.gauge2.Location = new System.Drawing.Point(19, 361);
             this.gauge2.Margin = new System.Windows.Forms.Padding(4);
             this.gauge2.Maximum = 3000D;
             this.gauge2.Name = "gauge2";
-            this.gauge2.Size = new System.Drawing.Size(304, 213);
+            this.gauge2.Size = new System.Drawing.Size(290, 199);
             this.gauge2.TabIndex = 3;
             this.gauge2.TextColor = System.Drawing.Color.Black;
             this.gauge2.Title = "转速";
@@ -219,11 +219,11 @@ namespace IndustrialControls.Demo.Pages
             this.gauge1.BackColor = System.Drawing.Color.Transparent;
             this.gauge1.DangerThreshold = 20D;
             this.gauge1.InverseThreshold = true;
-            this.gauge1.Location = new System.Drawing.Point(317, 473);
+            this.gauge1.Location = new System.Drawing.Point(336, 353);
             this.gauge1.Margin = new System.Windows.Forms.Padding(4);
             this.gauge1.Maximum = 120D;
             this.gauge1.Name = "gauge1";
-            this.gauge1.Size = new System.Drawing.Size(304, 213);
+            this.gauge1.Size = new System.Drawing.Size(290, 199);
             this.gauge1.TabIndex = 2;
             this.gauge1.Title = "温度";
             this.gauge1.Unit = "°C";
@@ -241,7 +241,7 @@ namespace IndustrialControls.Demo.Pages
             this.trendChart.Location = new System.Drawing.Point(20, 60);
             this.trendChart.Margin = new System.Windows.Forms.Padding(4);
             this.trendChart.Name = "trendChart";
-            this.trendChart.Size = new System.Drawing.Size(602, 227);
+            this.trendChart.Size = new System.Drawing.Size(603, 125);
             this.trendChart.TabIndex = 1;
             this.trendChart.TextColor = System.Drawing.Color.Black;
             this.trendChart.Title = "实时数据趋势";
@@ -260,7 +260,7 @@ namespace IndustrialControls.Demo.Pages
             this.Controls.Add(this.trendChart);
             this.Controls.Add(this.descLabel);
             this.Name = "DataVisualizationPage";
-            this.Size = new System.Drawing.Size(643, 883);
+            this.Size = new System.Drawing.Size(645, 762);
             this.progressGroup.ResumeLayout(false);
             this.logGroup.ResumeLayout(false);
             this.logGroup.PerformLayout();

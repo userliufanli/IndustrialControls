@@ -2,6 +2,8 @@
 
 欢迎使用 IndustrialControls 控件库!本文档库提供了完整的API参考和使用指南。
 
+![IndustrialControls架构图](docs/images/architecture-overview.png)
+
 ## 📖 文档导航
 
 ### 🚀 快速开始
@@ -17,8 +19,14 @@
 - **[AlarmDisplay - 报警显示](docs/AlarmDisplay-API.md)** - 分级报警管理、自动排序、确认清除
 - **[StatusIndicator - 状态指示器](docs/StatusIndicator-API.md)** - 多颜色状态、闪烁效果、历史记录
 
+![报警界面](docs/images/alarm-display-page.png)
+
+![报警与状态监控控件](docs/images/alarm-status-controls.png)
+
 #### 通讯与数据交换
 - **[CommunicationControl - 通讯控件](docs/CommunicationControl-API.md)** - TCP客户端/服务端/串口通讯
+
+![通讯控件](docs/images/communication-control.png)
 
 #### 数据输入与验证
 - **[DataInput - 数据输入组件](docs/DataInput-API.md)**
@@ -26,20 +34,30 @@
   - ValidatedTextBox - 验证文本框
   - DataInputPanel - 数据输入面板
 
+![数据输入组件](docs/images/data-input-controls.png)
+
 #### 数据可视化
 - **[TrendChart - 趋势图](docs/TrendChart-API.md)** - 多通道实时数据曲线显示
+
+![趋势图控件](docs/images/trend-chart.png)
 
 #### 设备控制
 - **[DeviceControlButton - 设备控制按钮](docs/DeviceControlButton-API.md)** - 多状态切换、长按确认
 
+![设备控制按钮](docs/images/device-button.png)
+
 #### 用户认证
 - **[FlatLoginControl - 登录控件](docs/FlatLoginControl-API.md)** - 用户认证、参数持久化
+
+![登录控件](docs/images/login-control.png)
 
 #### 虚拟键盘
 - **[VirtualKeyboard - 虚拟键盘系统](docs/VirtualKeyboard-API.md)**
   - VirtualKeyboardPanel - 键盘面板
   - VirtualKeyboardForm - 键盘窗体
   - VirtualKeyboardManager - 全局管理器
+
+![虚拟键盘](docs/images/virtual-keyboard.png)
 
 ## 🎯 如何使用文档
 
@@ -126,7 +144,7 @@
 
 ## 📅 更新记录
 
-- **2024**: 初始版本,包含所有核心控件API文档
+- **2026**: 初始版本,包含所有核心控件API文档
 
 ---
 
