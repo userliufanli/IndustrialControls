@@ -5,7 +5,6 @@ using System.IO;
 using System.Windows.Forms;
 using IndustrialControls.Core;
 using IndustrialControls.Demo;
-using IndustrialControls.Demo;
 
 namespace IndustrialControls.Demo.Pages
 {

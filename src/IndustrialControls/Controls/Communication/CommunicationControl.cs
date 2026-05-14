@@ -968,11 +968,11 @@ namespace IndustrialControls.Controls.Communication
 
                     using (var cts = new CancellationTokenSource(TimeSpan.FromSeconds(2)))
                     {
-                        var completedTask = await Task.WhenAny(
-                            Task.Factory.FromAsync(result, r => EndInvoke(r)),
-                            Task.Delay(Timeout.Infinite, cts.Token));
+                        var invokeTask = Task.Factory.FromAsync(result, r => EndInvoke(r));
+                        var timeoutTask = Task.Delay(Timeout.Infinite, cts.Token);
+                        var completedTask = await Task.WhenAny(invokeTask, timeoutTask);
 
-                        if (completedTask == Task.Delay(Timeout.Infinite, cts.Token))
+                        if (completedTask == timeoutTask)
                         {
                             LogError("SafeInvokeAsync 超时");
                         }
